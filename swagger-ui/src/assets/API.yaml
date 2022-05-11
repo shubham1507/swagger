@@ -1,0 +1,76 @@
+swagger: "2.0"
+info:
+  description: "Admin App API"
+  version: "1.0.0"
+  title: "Admin App API"
+  #termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "vishal.jain@genieminds.com"
+host: "http://192.168.1.159:8000"
+#basePath: "/v2"
+tags:
+- name: "client auth"
+  description: "Authenticate a client"
+- name: "client subscription"
+  description: "fetch all susbcription details"
+schemes:
+- "https"
+- "http"
+
+paths:
+  /client/subscriptions:
+    post:
+      tags:
+      - "client subscription"
+      summary: "client subscription"
+      description: ""
+      #operationId: "loginUser2"
+      produces:
+      #- "application/xml"
+      - "application/json"
+      parameters:
+      - name: "client_id"
+        in: "query"
+        description: "The client id for fetching subscription(s)"
+        required: true
+        type: "integer"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "string"
+        "400":
+          description: "Bad Request"
+        "401":
+          description: "Unauthorized"
+  /client/auth:
+    post:
+      tags:
+      - "client auth"
+      summary: "client authenciation"
+      description: ""
+      #operationId: "loginUser"
+      produces:
+      #- "application/xml"
+      - "application/json"
+      parameters:
+      - name: "client_key"
+        in: "query"
+        description: "The client key for authentication"
+        required: true
+        type: "string"
+      - name: "client_secret"
+        in: "query"
+        description: "The client secret for authentication"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "string"
+        "400":
+          description: "Bad Request"
+        "401":
+          description: "Unauthorized"
+  

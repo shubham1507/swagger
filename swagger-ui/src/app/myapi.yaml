@@ -1,0 +1,669 @@
+openapi: 3.0.2
+info:
+  title: NeuralGenie APIs
+  description: The APIs allow to perform various Image processing tasks
+  version: 1.0.0
+servers: 
+  - url: http://82.33.249.181:8585
+paths:
+  /:
+    get:
+      tags:
+        - Health Check
+      summary: Ping Me
+      operationId: ping_me__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /image_knee_feature_extraction/:
+    post:
+      tags:
+        - Knee Image Processing APIs
+      summary: Process Request
+      operationId: process_request_image_knee_feature_extraction__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AutoGenRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /image_knee_validation/:
+    post:
+      tags:
+        - Knee Image Processing APIs
+      summary: Process Request
+      operationId: process_request_image_knee_validation__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValImageRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /image_knee_left_or_right/:
+    post:
+      tags:
+        - Knee Image Processing APIs
+      summary: Process Request
+      operationId: process_request_image_knee_left_or_right__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValImageRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /image_knee_kl0/:
+    post:
+      tags:
+        - Knee Image Processing APIs
+      summary: Process Request
+      operationId: process_request_image_knee_kl0__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValImageRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /image_resize/:
+    post:
+      tags:
+        - Common Image Processing APIs
+      summary: Process Request
+      operationId: process_request_image_resize__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResizeImageRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /image_flip_horizontal/:
+    post:
+      tags:
+        - Common Image Processing APIs
+      summary: Process Request
+      operationId: process_request_image_flip_horizontal__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessImageRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /image_flip_vertical/:
+    post:
+      tags:
+        - Common Image Processing APIs
+      summary: Process Request
+      operationId: process_request_image_flip_vertical__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessImageRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /image_rotate_90_clockwise/:
+    post:
+      tags:
+        - Common Image Processing APIs
+      summary: Process Request
+      operationId: process_request_image_rotate_90_clockwise__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessImageRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /image_rotate_90_counterclockwise/:
+    post:
+      tags:
+        - Common Image Processing APIs
+      summary: Process Request
+      operationId: process_request_image_rotate_90_counterclockwise__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessImageRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /image_canny/:
+    post:
+      tags:
+        - Common Image Processing APIs
+      summary: Process Request
+      operationId: process_request_image_canny__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessImageRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /image_histogram_equalize/:
+    post:
+      tags:
+        - Common Image Processing APIs
+      summary: Process Request
+      operationId: process_request_image_histogram_equalize__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessImageRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /image_erode/:
+    post:
+      tags:
+        - Common Image Processing APIs
+      summary: Process Request
+      operationId: process_request_image_erode__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessImageRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /image_dilate/:
+    post:
+      tags:
+        - Common Image Processing APIs
+      summary: Process Request
+      operationId: process_request_image_dilate__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessImageRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /image_grid/:
+    post:
+      tags:
+        - Common Image Processing APIs
+      summary: Process Request
+      operationId: process_request_image_grid__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessImageRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /image_knee_contour_coordinates/:
+    post:
+      tags:
+        - Knee Image Processing APIs
+      summary: Process Request
+      operationId: process_request_image_knee_contour_coordinates__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessImageRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /image_knee_contour_lines/:
+    post:
+      tags:
+        - Knee Image Processing APIs
+      summary: Knee Contour Lines
+      operationId: knee_contour_lines_image_knee_contour_lines__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessImageRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /model_build_log_data/:
+    get:
+      tags:
+        - Model Build Log
+      summary: Process Request
+      operationId: process_request_model_build_log_data__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /model_build_log/:
+    get:
+      tags:
+        - Model Build Log
+      summary: Process Request
+      operationId: process_request_model_build_log__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /image_knee_sclerosis_annotate/:
+    post:
+      tags:
+        - Knee Image Processing APIs
+      summary: Knee Sclerosis Annotate
+      operationId: knee_sclerosis_annotate_image_knee_sclerosis_annotate__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessImageRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /image_knee_sclerosis_circle_cords/:
+    post:
+      tags:
+        - Knee Image Processing APIs
+      summary: Knee Sclerosis Circle Cords
+      operationId: knee_sclerosis_circle_cords_image_knee_sclerosis_circle_cords__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessImageRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /image_knee_jsn/:
+    post:
+      tags:
+        - Knee Image Processing APIs
+      summary: Knee Jsn Compute
+      operationId: knee_jsn_compute_image_knee_jsn__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessJSNImageRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /image_single_template_match/:
+    post:
+      tags:
+        - Common Image Processing APIs
+      summary: Process Request
+      operationId: process_request_image_single_template_match__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessTemplateMatchImageRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /image_multiple_template_match/:
+    post:
+      tags:
+        - Common Image Processing APIs
+      summary: Process Request
+      operationId: process_request_image_multiple_template_match__post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProcessTemplateMatchImageRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    AutoGenRequest:
+      title: AutoGenRequest
+      required:
+        - encoded_original_image
+      type: object
+      properties:
+        encoded_original_image:
+          title: Encoded Original Image
+          type: string
+    HTTPValidationError:
+      title: HTTPValidationError
+      type: object
+      properties:
+        detail:
+          title: Detail
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    ProcessImageRequest:
+      title: ProcessImageRequest
+      required:
+        - encoded_original_image
+      type: object
+      properties:
+        encoded_original_image:
+          title: Encoded Original Image
+          type: string
+    ProcessJSNImageRequest:
+      title: ProcessJSNImageRequest
+      required:
+        - encoded_original_image
+        - threshold
+        - horizontal_offset
+        - vertical_offset
+        - jsn_roi_grid_horizontal_perc
+        - jsn_roi_grid_vertical_perc
+        - jsn_pixel_count
+      type: object
+      properties:
+        encoded_original_image:
+          title: Encoded Original Image
+          type: string
+        threshold:
+          title: Threshold
+          type: integer
+        horizontal_offset:
+          title: Horizontal Offset
+          type: integer
+        vertical_offset:
+          title: Vertical Offset
+          type: integer
+        jsn_roi_grid_horizontal_perc:
+          title: Jsn Roi Grid Horizontal Perc
+          type: integer
+        jsn_roi_grid_vertical_perc:
+          title: Jsn Roi Grid Vertical Perc
+          type: integer
+        jsn_pixel_count:
+          title: Jsn Pixel Count
+          type: integer
+    ProcessTemplateMatchImageRequest:
+      title: ProcessTemplateMatchImageRequest
+      required:
+        - encoded_original_image
+        - encoded_template_image
+      type: object
+      properties:
+        encoded_original_image:
+          title: Encoded Original Image
+          type: string
+        encoded_template_image:
+          title: Encoded Template Image
+          type: string
+    ResizeImageRequest:
+      title: ResizeImageRequest
+      required:
+        - encoded_original_image
+        - resize_height
+        - resize_width
+      type: object
+      properties:
+        encoded_original_image:
+          title: Encoded Original Image
+          type: string
+        resize_height:
+          title: Resize Height
+          type: integer
+        resize_width:
+          title: Resize Width
+          type: integer
+    ValImageRequest:
+      title: ValImageRequest
+      required:
+        - encoded_original_image
+      type: object
+      properties:
+        encoded_original_image:
+          title: Encoded Original Image
+          type: string
+    ValidationError:
+      title: ValidationError
+      required:
+        - loc
+        - msg
+        - type
+      type: object
+      properties:
+        loc:
+          title: Location
+          type: array
+          items:
+            type: string
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+

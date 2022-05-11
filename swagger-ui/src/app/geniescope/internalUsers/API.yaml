@@ -1,0 +1,170 @@
+swagger: "2.0"
+info:
+  description: "Geniescope API"
+  version: "1.0.0"
+  title: "Admin App API"
+  #termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "vishal.jain@genieminds.com"
+host: "http://192.168.1.159:8001"
+#basePath: "/v2"
+tags:
+- name: "client-user auth"
+  description: "Authenticate a client-user"
+- name: "upload x-ray image"
+  description: "x-ray image details"
+- name: "download pdf"
+  description: "download pdf file of processed x-ray"
+schemes:
+- "https"
+- "http"
+
+paths:
+  /upload/download:
+    post:
+      tags:
+      - "download pdf"
+      summary: "download pdf of processed x-ray"
+      description: ""
+      #operationId: "loginUser2"
+      produces:
+      #- "application/xml"
+      - "application/json"
+      parameters:
+      - name: "authorization"
+        in: "header"
+        required: true
+        type: "string"
+        description: "Client-User Token"
+      - name: "patient_id"
+        in: "query"
+        type: "string"
+        required: true
+      - name: "patient_name"
+        in: "query"
+        type: "string"
+        required: true
+      - name: "patient_gender"
+        in: "query"
+        type: "string"
+        required: true
+      - name: "patient_dob"
+        in: "query"
+        type: "string"
+        required: true
+      - name: "patient_email"
+        in: "query"
+        type: "string"
+        required: true
+      - name: "patient_phone"
+        in: "query"
+        type: "string"
+        required: true
+      - name: "key_notes"
+        in: "query"
+        type: "string"
+        required: true
+      - name: "processed_image"
+        in: "query"
+        type: "string"
+        required: true
+      - name: "original_image"
+        in: "query"
+        type: "string"
+        required: true
+      - name: "osteophytes_medial"
+        in: "query"
+        type: "string"
+        required: true
+      - name: "osteophytes_lateral"
+        in: "query"
+        type: "string"
+        required: true
+      - name: "jsn_medial"
+        in: "query"
+        type: "string"
+        required: true
+      - name: "jsn_lateral"
+        in: "query"
+        type: "string"
+        required: true
+      - name: "sclerosis_medial"
+        in: "query"
+        type: "string"
+        required: true
+      - name: "sclerosis_lateral"
+        in: "query"
+        type: "string"
+        required: true
+        
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "string"
+        "400":
+          description: "Bad Request"
+        "401":
+          description: "Unauthorized"
+  /upload/image:
+    post:
+      tags:
+      - "upload x-ray image"
+      summary: "upload x-ray image"
+      description: ""
+      consumes:
+      - "multipart/form-data"
+      #operationId: "loginUser2"
+      produces:
+      #- "application/xml"
+      - "application/json"
+      parameters:
+      - name: "original_image"
+        in: "formData"
+        type: "file"
+        required: true
+      - name: "authorization"
+        in: "header"
+        description: "Authorization token in header"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "string"
+        "400":
+          description: "Bad Request"
+        "401":
+          description: "Unauthorized"
+  /clientuser/auth:
+    post:
+      tags:
+      - "client-user auth"
+      summary: "client-user authenciation"
+      description: ""
+      #operationId: "loginUser"
+      produces:
+      #- "application/xml"
+      - "application/json"
+      parameters:
+      - name: "user"
+        in: "query"
+        description: "The client-user login id"
+        required: true
+        type: "string"
+      - name: "password"
+        in: "query"
+        description: "The client-user password"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "string"
+        "400":
+          description: "Bad Request"
+        "401":
+          description: "Unauthorized"
+  
